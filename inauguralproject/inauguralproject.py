@@ -125,7 +125,6 @@ def value_of_choice_tax(taxes,PopulationWage,e,v,m):
 #Finds the tax maximising values of the vector 'taxes'.
 def taxOptimiser(PopulationWage,e,v,m):
     
-    # 5.2.3 Call solver
     initial_guess = [0.8,0.6,0.5]
     sol_case3 = optimize.minimize(
         value_of_choice_tax,initial_guess,method='Nelder-Mead',
@@ -146,11 +145,6 @@ print('Optimal taxe rates and revenue, with N=100')
 [t0Star,t1Star,kStar]= taxOptimiser(PopulationWageSmall,e,v,m)
 TotTaxSmall = TotalTax(PopulationWageLarge,e,v,t0Star,t1Star,kStar,m)
 print(f'Total tax revenue = {TotTaxSmall:.2f}')
-
-print('Optimal taxe rates and revenue, with N=1000')
-[t0Star,t1Star,kStar]=taxOptimiser(PopulationWageMedium,e,v,m)
-TotTaxMedium = TotalTax(PopulationWageLarge,e,v,t0Star,t1Star,kStar,m)
-print(f'Total tax revenue = {TotTaxMedium:.2f}')
 
 print('Optimal taxe rates and revenue, with N=10000')
 [t0Star,t1Star,kStar]=taxOptimiser(PopulationWageLarge,e,v,m)
