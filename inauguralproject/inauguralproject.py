@@ -111,6 +111,7 @@ print(f'The total tax revenue is {TotTax_e_new:.1f}')
 
 
 # Question 5
+
 PopulationWageSmall = np.random.uniform(0.5,1.5,size=100)
 PopulationWageMedium = np.random.uniform(0.5,1.5,size=1000)
 
