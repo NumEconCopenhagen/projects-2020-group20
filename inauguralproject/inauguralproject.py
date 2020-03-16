@@ -124,7 +124,7 @@ def value_of_choice_tax(taxes,PopulationWage,e,v,m):
 
 #Finds the tax maximising values of the vector 'taxes'.
 def taxOptimiser(PopulationWage,e,v,m):
-    
+
     initial_guess = [0.8,0.6,0.5]
     sol_case3 = optimize.minimize(
         value_of_choice_tax,initial_guess,method='Nelder-Mead',
