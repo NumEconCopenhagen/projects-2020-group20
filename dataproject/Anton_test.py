@@ -13,3 +13,13 @@ raw_input = pd.read_csv('PL_all_seasons.csv', \
 usecols=['Date','HomeTeam','AwayTeam','FTHG','FTAG','FTR','B365H','B365D','B365A'])
 raw_input.head(10)
 
+# Summary statistics
+raw_input.describe()
+
+# dataframe
+X = pd.DataFrame(data=raw_input)
+print(X)
+X.describe()
+
+# append seasons
+X['Season'] :
