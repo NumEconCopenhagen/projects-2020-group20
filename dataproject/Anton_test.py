@@ -8,6 +8,8 @@ import pandas as pd
 # local modules
 import dataproject
 
-# a. load
-raw_input = pd.read_csv('PL_all_seasons.csv')
-print(raw_input)
+# a. load data w/o unnecessary data
+raw_input = pd.read_csv('PL_all_seasons.csv', \
+usecols=['Date','HomeTeam','AwayTeam','FTHG','FTAG','FTR','B365H','B365D','B365A'])
+raw_input.head(10)
+
