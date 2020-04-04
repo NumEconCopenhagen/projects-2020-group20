@@ -13,7 +13,7 @@ raw_input = pd.read_csv('PL_all_seasons.csv', \
 usecols=['Date','HomeTeam','AwayTeam','FTHG','FTAG','FTR','B365H','B365D','B365A'])
 raw_input.head(20)
 
-# Summary statistics
+# b. Summary statistics
 raw_input.describe()
 
 # draw dataframe
@@ -37,7 +37,7 @@ season = []
 for row in df_w_seasons['Date']: 
     if row > '14/08/09':
         season.append('09/10')
-    elif row > '13/08/19':
+    elif row > '13/08/10':
         season.append('10/11')
     elif row > '12/08/11':
         season.append('11/12')
@@ -45,11 +45,18 @@ for row in df_w_seasons['Date']:
         season.append('12/13')
     elif row > '16/08/13':
         season.append('13/14')
-    elif row > 
+    elif row > '15/08/14':
+        season.append('14/15')
+    elif row > '07/08/15':
+        season.append('15/16')
+    elif row > '12/08/16':
+        season.append('16/17')
     elif row > '10/08/17':
         season.append('17/18')
+    elif row > '09/08/18':
+        season.append('18/19')
     else:
-        season.append('test')
+        season.append('lort')
 
 df_w_seasons['Season'] = season
 df_w_seasons
