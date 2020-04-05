@@ -130,65 +130,8 @@ df['Return_A'] = df.A_true * df.B365A
 df['Return_H'] = df.H_true * df.B365H
 df.head(10)
 
-Return_data = {'Season':['09/10','10/11','11/12','12/13','13/14','14/15','15/16','16/17','17/18','18/19']}
-Return_df = pd.DataFrame(Return_data, columns = ['Season'])
-Return_df
-
-
-for row in df['Season']:
-    if row == '09/10':
-        D_sum_return0910 = df.Return_D.sum()
-        A_sum_return0910 = df.Return_A.sum()
-        H_sum_return0910 = df.Return_H.sum()
-    elif row == '10/11':
-        D_sum_return1011 = df.Return_D.sum()
-        A_sum_return1011 = df.Return_A.sum()
-        H_sum_return1011 = df.Return_H.sum()
-    elif row == '11/12':
-        D_sum_return1112 = df.Return_D.sum()
-        A_sum_return1112 = df.Return_A.sum()
-        H_sum_return1112 = df.Return_H.sum()
-    elif row == '12/13':
-        D_sum_return1213 = df.Return_D.sum()
-        A_sum_return1213 = df.Return_A.sum()
-        H_sum_return1213 = df.Return_H.sum()
-    elif row == '13/14':
-        D_sum_return1314 = df.Return_D.sum()
-        A_sum_return1314 = df.Return_A.sum()
-        H_sum_return1314 = df.Return_H.sum()
-    elif row == '14/15':
-        D_sum_return1415 = df.Return_D.sum()
-        A_sum_return1415 = df.Return_A.sum()
-        H_sum_return1415 = df.Return_H.sum()
-    elif row == '14/15':
-        D_sum_return1415 = df.Return_D.sum()
-        A_sum_return1415 = df.Return_A.sum()
-        H_sum_return1415 = df.Return_H.sum()
-    elif row == '15/16':
-        D_sum_return1516 = df.Return_D.sum()
-        A_sum_return1516 = df.Return_A.sum()
-        H_sum_return1516 = df.Return_H.sum()
-    elif row == '16/17':
-        D_sum_return1617 = df.Return_D.sum()
-        A_sum_return1617 = df.Return_A.sum()
-        H_sum_return1617 = df.Return_H.sum()
-    elif row == '17/18':
-        D_sum_return1718 = df.Return_D.sum()
-        A_sum_return1718 = df.Return_A.sum()
-        H_sum_return1718 = df.Return_H.sum()
-    elif row == '18/19':
-        D_sum_return1819 = df.Return_D.sum()
-        A_sum_return1819 = df.Return_A.sum()
-        H_sum_return1819 = df.Return_H.sum()
-
-Return_D_test = [D_sum_return0910,D_sum_return1011,D_sum_return1112,D_sum_return1213,D_sum_return1314,D_sum_return1415,D_sum_return1516,D_sum_return1617,D_sum_return1718,D_sum_return1819]
-Return_A_test = [A_sum_return0910,A_sum_return1011,A_sum_return1112,A_sum_return1213,A_sum_return1314,A_sum_return1415,A_sum_return1516,A_sum_return1617,A_sum_return1718,A_sum_return1819]
-Return_H_test = [H_sum_return0910,H_sum_return1011,H_sum_return1112,H_sum_return1213,H_sum_return1314,H_sum_return1415,H_sum_return1516,H_sum_return1617,H_sum_return1718,H_sum_return1819]
-
-
-Return_df['Return_test_D'] = Return_D_test
-Return_df['Return_test_A'] = Return_A_test
-Return_df['Return_test_H'] = Return_H_test
-Return_df
-
-
+#####################################################################################################################
+Season_group = df.groupby(['Season','FTR']).sum()
+drop_these = ['B365H','B365D','B365A']
+Season_group.drop(drop_these, axis=1, inplace=True)
+Season_group
