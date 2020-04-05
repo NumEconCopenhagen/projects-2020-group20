@@ -1,3 +1,4 @@
+#####################################################################################################################
 import pandas as pd
 from datetime import datetime
 
@@ -8,12 +9,13 @@ from datetime import datetime
 
 # local modules
 import dataproject
+#####################################################################################################################
 
-# a. load data w/o unnecessary data
+# A. load data without unnecessary data
 raw_input = pd.read_csv('PL_all_seasons.csv', \
-usecols=['Date','HomeTeam','AwayTeam','FTHG','FTAG','FTR','B365H','B365D','B365A'])
+usecols=['Date','HomeTeam','AwayTeam','FTR','B365H','B365D','B365A'])
 
-# b. convert date from string to datetimes
+# B. convert date from string to datetimes
 raw_input['Date'] = pd.to_datetime(raw_input['Date'], dayfirst = True)
 
 # append seasons
@@ -58,28 +60,38 @@ for i in range(len(raw_input)):
         
         # inserting new column with values of list made above         
 raw_input.insert(2, "Season", Type_new) 
+# raw_input.head(10)
+#####################################################################################################################
 
-raw_input
+# Combine total data frame
 
-# c. Summary statistics
-raw_input.describe()
+df = pd.DataFrame(raw_input)
 
-# draw dataframe
-X_draw = pd.DataFrame(raw_input)
-draws = X_draw.loc[X_draw['FTR']=='D',['B365D']]
-print(draws)
+# d. add boolean of result Home, Draw, Away and then print df
 
-# home dataframe
-X_home = pd.DataFrame(raw_input)
-home = X_home.loc[X_home['FTR']=='H',['B365H']]
-print(home)
+df['D_true'] = df['FTR'].str.count("D")
+df.head(10)
 
-# away dataframe
-X_away = pd.DataFrame(raw_input)
-away = X_away.loc[X_away['FTR']=='A',['B365A']]
-print(away)
+# e. multiply bolean of Draw (D_true) with B365 odds of draw to get each games return for you
 
+return_D = ( df.loc[:, 'D_true'] * df.loc[:, 'B365D'] )
 
-season1011 = raw_input.loc[raw_input.Season == '11/12']
-season1011.describe()
+print(return_D)
 
+# f. sum these individual returns to get you full season return
+
+sum_return_D = return_D.sum()
+
+print(sum_return_D)
+
+#g. find the net return by subtracting the DKK 1 * 380 games = DKK 380 you have betted during the season to find your gain/loss
+
+net_return_D = sum_return_D - 380
+
+print(net_return_D)
+
+#g. find the return in percentage by dividing you gain with the DKK 1 * 380 games = DKK 380 you have betted during the season and subtract 1.
+
+net_pct_returm_D = sum_return_D / 380 - 1
+
+print(net_pct_returm_D)
