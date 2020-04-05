@@ -135,48 +135,48 @@ Return_df = pd.DataFrame(Return_data, columns = ['Season'])
 Return_df
 
 
-for x in df['Season']:
-    if x == '09/10':
+for row in df['Season']:
+    if row == '09/10':
         D_sum_return0910 = df.Return_D.sum()
         A_sum_return0910 = df.Return_A.sum()
         H_sum_return0910 = df.Return_H.sum()
-    elif x == '10/11':
+    elif row == '10/11':
         D_sum_return1011 = df.Return_D.sum()
         A_sum_return1011 = df.Return_A.sum()
         H_sum_return1011 = df.Return_H.sum()
-    elif x == '11/12':
+    elif row == '11/12':
         D_sum_return1112 = df.Return_D.sum()
         A_sum_return1112 = df.Return_A.sum()
         H_sum_return1112 = df.Return_H.sum()
-    elif x == '12/13':
+    elif row == '12/13':
         D_sum_return1213 = df.Return_D.sum()
         A_sum_return1213 = df.Return_A.sum()
         H_sum_return1213 = df.Return_H.sum()
-    elif x == '13/14':
+    elif row == '13/14':
         D_sum_return1314 = df.Return_D.sum()
         A_sum_return1314 = df.Return_A.sum()
         H_sum_return1314 = df.Return_H.sum()
-    elif x == '14/15':
+    elif row == '14/15':
         D_sum_return1415 = df.Return_D.sum()
         A_sum_return1415 = df.Return_A.sum()
         H_sum_return1415 = df.Return_H.sum()
-    elif x == '14/15':
+    elif row == '14/15':
         D_sum_return1415 = df.Return_D.sum()
         A_sum_return1415 = df.Return_A.sum()
         H_sum_return1415 = df.Return_H.sum()
-    elif x == '15/16':
+    elif row == '15/16':
         D_sum_return1516 = df.Return_D.sum()
         A_sum_return1516 = df.Return_A.sum()
         H_sum_return1516 = df.Return_H.sum()
-    elif x == '16/17':
+    elif row == '16/17':
         D_sum_return1617 = df.Return_D.sum()
         A_sum_return1617 = df.Return_A.sum()
         H_sum_return1617 = df.Return_H.sum()
-    elif x == '17/18':
+    elif row == '17/18':
         D_sum_return1718 = df.Return_D.sum()
         A_sum_return1718 = df.Return_A.sum()
         H_sum_return1718 = df.Return_H.sum()
-    elif x == '18/19':
+    elif row == '18/19':
         D_sum_return1819 = df.Return_D.sum()
         A_sum_return1819 = df.Return_A.sum()
         H_sum_return1819 = df.Return_H.sum()
