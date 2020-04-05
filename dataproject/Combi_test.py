@@ -98,3 +98,24 @@ print(net_return_D)
 net_pct_returm_D = sum_return_D / No_of_matches - 1
 
 print(net_pct_returm_D)
+
+#####################################################################################################################
+
+Returns = {'Season':['09/10','10/11','11/12','12/13','13/14','14/15','15/16','16/17','17/18','18/19']}
+Return_df = pd.DataFrame(Returns, columns = ['Season'])
+Return_df
+Seasonal_return = []
+
+for x in df['Season']:
+    if x = '09/10':
+        return_D = ( df.loc[:, 'D_true'] * df.loc[:, 'B365D'] )
+        sum_return_D = return_D.sum()
+        No_of_matches = df.Date.count()
+        net_return_D = sum_return_D - No_of_matches
+        net_pct_returm_D = sum_return_D / No_of_matches - 1
+    Seasonal_return.append(net_pct_returm_D)
+
+    else 'Hello'
+
+Return_df['Seasonal return'] = Seasonal_return
+Return_df    
