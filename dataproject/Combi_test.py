@@ -69,7 +69,9 @@ df = pd.DataFrame(raw_input)
 
 # d. add boolean of result Home, Draw, Away and then print df
 
+df['H_true'] = df['FTR'].str.count("H")
 df['D_true'] = df['FTR'].str.count("D")
+df['A_true'] = df['FTR'].str.count("A")
 df.head(10)
 
 # e. multiply bolean of Draw (D_true) with B365 odds of draw to get each games return for you
@@ -101,21 +103,92 @@ print(net_pct_returm_D)
 
 #####################################################################################################################
 
-Returns = {'Season':['09/10','10/11','11/12','12/13','13/14','14/15','15/16','16/17','17/18','18/19']}
-Return_df = pd.DataFrame(Returns, columns = ['Season'])
-Return_df
-Seasonal_return = []
+ Returns = {'Season':['09/10','10/11','11/12','12/13','13/14','14/15','15/16','16/17','17/18','18/19']}
+ Return_df = pd.DataFrame(Returns, columns = ['Season'])
+ Return_df
+ Seasonal_return = []
 
-for x in df['Season']:
-    if x = '09/10':
+ for x in df['Season']:
+   if x == '09/10':
         return_D = ( df.loc[:, 'D_true'] * df.loc[:, 'B365D'] )
         sum_return_D = return_D.sum()
         No_of_matches = df.Date.count()
         net_return_D = sum_return_D - No_of_matches
-        net_pct_returm_D = sum_return_D / No_of_matches - 1
-    Seasonal_return.append(net_pct_returm_D)
+         net_pct_returm_D = sum_return_D / No_of_matches - 1
+     Seasonal_return.append(net_pct_returm_D)
 
     else 'Hello'
 
 Return_df['Seasonal return'] = Seasonal_return
 Return_df    
+
+
+#####################################################################################################################
+
+df['Return_D'] = df.D_true * df.B365D
+df['Return_A'] = df.A_true * df.B365A
+df['Return_H'] = df.H_true * df.B365H
+df.head(10)
+
+Return_data = {'Season':['09/10','10/11','11/12','12/13','13/14','14/15','15/16','16/17','17/18','18/19']}
+Return_df = pd.DataFrame(Return_data, columns = ['Season'])
+Return_df
+
+
+for x in df['Season']:
+    if x == '09/10':
+        D_sum_return0910 = df.Return_D.sum()
+        A_sum_return0910 = df.Return_A.sum()
+        H_sum_return0910 = df.Return_H.sum()
+    elif x == '10/11':
+        D_sum_return1011 = df.Return_D.sum()
+        A_sum_return1011 = df.Return_A.sum()
+        H_sum_return1011 = df.Return_H.sum()
+    elif x == '11/12':
+        D_sum_return1112 = df.Return_D.sum()
+        A_sum_return1112 = df.Return_A.sum()
+        H_sum_return1112 = df.Return_H.sum()
+    elif x == '12/13':
+        D_sum_return1213 = df.Return_D.sum()
+        A_sum_return1213 = df.Return_A.sum()
+        H_sum_return1213 = df.Return_H.sum()
+    elif x == '13/14':
+        D_sum_return1314 = df.Return_D.sum()
+        A_sum_return1314 = df.Return_A.sum()
+        H_sum_return1314 = df.Return_H.sum()
+    elif x == '14/15':
+        D_sum_return1415 = df.Return_D.sum()
+        A_sum_return1415 = df.Return_A.sum()
+        H_sum_return1415 = df.Return_H.sum()
+    elif x == '14/15':
+        D_sum_return1415 = df.Return_D.sum()
+        A_sum_return1415 = df.Return_A.sum()
+        H_sum_return1415 = df.Return_H.sum()
+    elif x == '15/16':
+        D_sum_return1516 = df.Return_D.sum()
+        A_sum_return1516 = df.Return_A.sum()
+        H_sum_return1516 = df.Return_H.sum()
+    elif x == '16/17':
+        D_sum_return1617 = df.Return_D.sum()
+        A_sum_return1617 = df.Return_A.sum()
+        H_sum_return1617 = df.Return_H.sum()
+    elif x == '17/18':
+        D_sum_return1718 = df.Return_D.sum()
+        A_sum_return1718 = df.Return_A.sum()
+        H_sum_return1718 = df.Return_H.sum()
+    elif x == '18/19':
+        D_sum_return1819 = df.Return_D.sum()
+        A_sum_return1819 = df.Return_A.sum()
+        H_sum_return1819 = df.Return_H.sum()
+
+Return_D_test = [D_sum_return0910,D_sum_return1011]
+Return_A_test = [A_sum_return0910,A_sum_return1011]
+Return_H_test = [H_sum_return0910,H_sum_return1011]
+
+
+Return_df['Return_test_D'] = Return_D_test
+Return_df['Return_test_A'] = Return_A_test
+Return_df['Return_test_H'] = Return_H_test
+Return_df
+
+
