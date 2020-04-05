@@ -85,7 +85,6 @@ Season_group.drop(drop_these, axis=1, inplace=True)
 #####################################################################################################################
 
 # G. Order the grouped dataframe
-Season_group['Return_pct_D'] = (Season_group.Return_D / 380 -1) * 100
 Season_group['BetW'] = Season_group.H_true + Season_group.D_true + Season_group.A_true
 Season_group['BetR'] = Season_group.Return_H + Season_group.Return_D + Season_group.Return_A
 
