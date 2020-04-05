@@ -65,7 +65,7 @@ raw_input.insert(2, "Season", Type_new)
 
 # Combine total data frame
 
-df = pd.DataFrame(raw_input)
+df = pd.DataFrame(raw_input.loc[raw_input.Season == '18/19'])
 
 # d. add boolean of result Home, Draw, Away and then print df
 
@@ -81,17 +81,20 @@ print(return_D)
 # f. sum these individual returns to get you full season return
 
 sum_return_D = return_D.sum()
-
 print(sum_return_D)
+
+# count entries
+No_of_matches = df.Date.count()
+print(No_of_matches)
 
 #g. find the net return by subtracting the DKK 1 * 380 games = DKK 380 you have betted during the season to find your gain/loss
 
-net_return_D = sum_return_D - 380
+net_return_D = sum_return_D - No_of_matches
 
 print(net_return_D)
 
 #g. find the return in percentage by dividing you gain with the DKK 1 * 380 games = DKK 380 you have betted during the season and subtract 1.
 
-net_pct_returm_D = sum_return_D / 380 - 1
+net_pct_returm_D = sum_return_D / No_of_matches - 1
 
 print(net_pct_returm_D)
