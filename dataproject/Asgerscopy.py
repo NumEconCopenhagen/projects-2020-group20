@@ -14,10 +14,12 @@ raw_input = pd.read_csv('PL_all_seasons.csv', \
 usecols=['Date','HomeTeam','AwayTeam','FTHG','FTAG','FTR','B365H','B365D','B365A'])
 raw_input.head(5)
 
-# convert date from string to datetimes
-raw_input['Date'] = pd.to_datetime(raw_input['Date'])
-print(raw_input)
 
+
+# convert date from string to datetimes
+raw_input['Date'] = pd.to_datetime(raw_input['Date'], dayfirst = True)
+print(raw_input)
+raw_input.head(5)
 
 # b. Summary statistics
 raw_input.describe()
@@ -48,20 +50,35 @@ Type_new = pd.Series([])
 
 # running a for loop and asigning some values to series 
 for i in range(len(raw_input)): 
-    if raw_input["Date"][i] < datetime(2010, 8, 15): 
+    if raw_input["Date"][i] < datetime(2010, 8, 10): 
         Type_new[i]="09/10"
   
-    elif raw_input["Date"][i] < datetime(2011, 8,15): 
-        Type_new[i]="09/10"
-  
-    elif raw_input["Date"][i] < datetime(2012, 8,15): 
+    elif raw_input["Date"][i] < datetime(2011, 8, 10): 
         Type_new[i]="10/11"
   
-    elif raw_input["Date"][i] < datetime(2011, 8,15): 
+    elif raw_input["Date"][i] < datetime(2012, 8, 10):  
         Type_new[i]="11/12"
   
-    elif raw_input["Date"][i] < datetime(2012, 8,15): 
+    elif raw_input["Date"][i] < datetime(2013, 8, 10):  
         Type_new[i]="12/13"
+  
+    elif raw_input["Date"][i] < datetime(2014, 8, 10):  
+        Type_new[i]="13/14"
+    
+    elif raw_input["Date"][i] < datetime(2015, 8, 10):  
+        Type_new[i]="14/15"
+  
+    elif raw_input["Date"][i] < datetime(2016, 8, 10):  
+        Type_new[i]="15/16"
+
+    elif raw_input["Date"][i] < datetime(2017, 8, 10):  
+        Type_new[i]="16/17"
+  
+    elif raw_input["Date"][i] < datetime(2018, 8, 10):  
+        Type_new[i]="17/18"
+  
+    elif raw_input["Date"][i] < datetime(2019, 8, 10):  
+        Type_new[i]="18/19"
 
     else: 
         season[i]= raw_input["Date"][i] 
@@ -71,5 +88,7 @@ for i in range(len(raw_input)):
 raw_input.insert(2, "Season", Type_new) 
   
 # list output 
-raw_input.head(0) 
+raw_input.head(5) 
+
+
 print(raw_input)
