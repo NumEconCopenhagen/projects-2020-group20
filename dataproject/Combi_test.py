@@ -131,7 +131,26 @@ df['Return_H'] = df.H_true * df.B365H
 df.head(10)
 
 #####################################################################################################################
+
 Season_group = df.groupby(['Season','FTR']).sum()
 drop_these = ['B365H','B365D','B365A']
 Season_group.drop(drop_these, axis=1, inplace=True)
 Season_group
+
+#####################################################################################################################
+
+Season_group['Return_pct_D'] = (Season_group.Return_D / 380 -1) * 100
+
+Season_group
+
+Season_group['BetW'] = Season_group.H_true + Season_group.D_true + Season_group.A_true
+Season_group['BetR'] = Season_group.Return_H + Season_group.Return_D + Season_group.Return_A
+
+Bets = pd.DataFrame(Season_group, columns=['BetW', 'BetR'])
+Bets
+Bets['NetNomR'] = Bets.BetR - 380
+Bets
+Bets['Return_pct'] = (Bets.BetR / 380 -1)
+Bets
+Bets['Return_pct'] = pd.Series(["{0:.2f}%".format(val * 100) for val in Bets['Return_pct']],index = Bets.index)
+Bets
