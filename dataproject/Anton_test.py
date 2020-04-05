@@ -58,7 +58,7 @@ for row in df_w_seasons['Date']:
         season.append('16/17')
     elif row > datetime(2017, 8, 10):
         season.append('17/18')
-    elif row > datetime(2018, 8, 9)':
+    elif row > datetime(2018, 8, 9):
         season.append('18/19')
     else:
         season.append('lort')
