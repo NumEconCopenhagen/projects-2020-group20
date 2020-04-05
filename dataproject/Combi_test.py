@@ -182,8 +182,8 @@ for x in df['Season']:
         H_sum_return1819 = df.Return_H.sum()
 
 Return_D_test = [D_sum_return0910,D_sum_return1011,D_sum_return1112,D_sum_return1213,D_sum_return1314,D_sum_return1415,D_sum_return1516,D_sum_return1617,D_sum_return1718,D_sum_return1819]
-Return_A_test = [A_sum_return0910,A_sum_return1011]
-Return_H_test = [H_sum_return0910,H_sum_return1011]
+Return_A_test = [A_sum_return0910,A_sum_return1011,A_sum_return1112,A_sum_return1213,A_sum_return1314,A_sum_return1415,A_sum_return1516,A_sum_return1617,A_sum_return1718,A_sum_return1819]
+Return_H_test = [H_sum_return0910,H_sum_return1011,H_sum_return1112,H_sum_return1213,H_sum_return1314,H_sum_return1415,H_sum_return1516,H_sum_return1617,H_sum_return1718,H_sum_return1819]
 
 
 Return_df['Return_test_D'] = Return_D_test
