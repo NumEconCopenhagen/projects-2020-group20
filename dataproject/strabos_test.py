@@ -1,15 +1,15 @@
-# Funtkion
+# We import Matplot to plot the bar chart
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Data
+# Then we gather all the data we previously have calculated
 n_groups = 10
 Away_Win = (-31.42, -13.66, 4.01, -12.16, 2.59, 6.03, 2.83, -18.97, -15.11, -1.96)
 Draw = (-7.5, 6.94, -8.17, 4.48, -19.74, -4.02, 2.62, -12.02, 4.96, -25.92)
 Home_Win = (9.48, 0.73, -4.01, -11.22, 2.21, -0.72, -9.81, 6.56, 2.89, 5.05)
 
 
-# Plot
+# To plot the data in a bar chart, we create a figure with three bars in each of the 10 groups (seasons). The chart present profits shown in percentage for either of the three outcomes, given that you betted an equal amount on all Premier League games on the same result (Home Win, Draw or Away win) in a given season.  
 fig, ax = plt.subplots()
 index = np.arange(n_groups)
 bar_width = 0.2
