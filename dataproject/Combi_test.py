@@ -1,6 +1,7 @@
 #####################################################################################################################
 import pandas as pd
 from datetime import datetime
+import matplotlib.pyplot as plt
 
 # autoreload modules when code is run
 %load_ext autoreload
@@ -96,3 +97,9 @@ Bets['NetNomR'] = Bets.BetR - 380
 Bets['Return_pct'] = (Bets.BetR / 380 -1)
 Bets['Return_pct'] = pd.Series(["{0:.2f}%".format(val * 100) for val in Bets['Return_pct']],index = Bets.index)
 Bets
+
+#####################################################################################################################
+
+# I. visual presentation
+
+Bets.unstack().plot()
