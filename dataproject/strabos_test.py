@@ -41,6 +41,6 @@ plt.rcParams['font.sans-serif'] = 'Helvetica'
 plt.tight_layout()
 plt.show()
 
-#Conclussion: In this project we have taken a CSV file 
+#Conclussion: In this project, we have taken a CSV file, including all results in the Premier League spanning 10 seasons from 2009 to 2019. We took the data and estimated how much profit we would gain in each season if we bet a fixed amount on each game, betting purely on respectively home wins, draws, or away wins. 
 
 
