@@ -102,7 +102,7 @@ Bets
 
 # I. visual presentation
 plt = df.groupby('Season').sum()
-plt['D_pct'] = plt.Return_D / 380 - 1
+plt['D_pct'] = "{0:.2f}%".format((plt.Return_D / 380 - 1)*100)
 plt['A_pct'] = plt.Return_A / 380 - 1
 plt['H_pct'] = plt.Return_H / 380 - 1
 plt
