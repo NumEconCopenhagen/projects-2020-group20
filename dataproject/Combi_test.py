@@ -101,13 +101,25 @@ Bets
 #####################################################################################################################
 
 # I. visual presentation
-plt = df.groupby('Season').sum()
-plt['D_pct'] = "{0:.2f}%".format((plt.Return_D / 380 - 1)*100)
-plt['A_pct'] = plt.Return_A / 380 - 1
-plt['H_pct'] = plt.Return_H / 380 - 1
-plt
+Vis = df.groupby('Season').sum()
+Vis['D_pct'] = (Vis.Return_D / 380 - 1)*100
+Vis['A_pct'] = (Vis.Return_A / 380 - 1)*100
+Vis['H_pct'] = (Vis.Return_H / 380 - 1)*100
+Vis
 
-Draw = plt.plot(y=['D_true','D_pct'])
+# Draw graph
+Vis.D_true.plot.bar()
+Vis.D_pct.plot(secondary_y=True,color='r')
+plt.show()
+
+
 Away = plt.plot(y=['A_true','A_pct'])
 Home = plt.plot(y=['H_true','H_pct'])
+
+y1_draw = ['D_true']
+y2_draw = ['D_pct']
+
+
+
+
 
