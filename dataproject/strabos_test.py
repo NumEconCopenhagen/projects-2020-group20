@@ -17,17 +17,17 @@ opacity = 1
 
 rects1 = plt.bar(index, Home_Win, bar_width,
 alpha=opacity,
-color='violet',
+color='mediumblue',
 label='Home Win')
 
 rects2 = plt.bar(index + bar_width, Draw, bar_width,
 alpha=opacity,
-color='hotpink',
+color='darkgrey',
 label='Draw')
 
 rects3 = plt.bar(index + bar_width + bar_width, Away_Win, bar_width,
 alpha=opacity,
-color='magenta',
+color='firebrick',
 label='Away Win')
 
 plt.xlabel('Season')
@@ -40,5 +40,7 @@ plt.rcParams['font.sans-serif'] = 'Helvetica'
 
 plt.tight_layout()
 plt.show()
+
+#Conclussion: In this project we have taken a CSV file 
 
 
