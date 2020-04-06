@@ -101,5 +101,13 @@ Bets
 #####################################################################################################################
 
 # I. visual presentation
+plt = df.groupby('Season').sum()
+plt['D_pct'] = plt.Return_D / 380 - 1
+plt['A_pct'] = plt.Return_A / 380 - 1
+plt['H_pct'] = plt.Return_H / 380 - 1
+plt
 
-Bets.unstack().plot()
+Draw = plt.plot(y=['D_true','D_pct'])
+Away = plt.plot(y=['A_true','A_pct'])
+Home = plt.plot(y=['H_true','H_pct'])
+
